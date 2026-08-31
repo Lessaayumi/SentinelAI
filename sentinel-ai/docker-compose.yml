@@ -1,0 +1,11 @@
+services:
+  sentinel-ai:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:///./sentinel.db
+      MODEL_PATH: ml/models/isolation_forest.joblib
+    volumes:
+      - ./data:/app/data
+      - ./ml/models:/app/ml/models
